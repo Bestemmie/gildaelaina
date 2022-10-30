@@ -1,4 +1,4 @@
-# 🦾 Gilda Elaina
+# 👺 Gilda Elaina
 The discord bot for gilda elaina, swaggiest bot alive
 
 # SETUP
