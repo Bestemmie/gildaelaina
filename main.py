@@ -38,7 +38,7 @@ class VerifyButton(View):
 
 @bot.tree.command(name="verificati", description="stampa il prompt della verifica nel canale apposito")
 async def print_verificati(interaction: discord.Interaction):
-    rules_banner = discord.File("./assets/imgs/verificati.jpg", filename="verificati.jpg")
+    verified_banner = discord.File("./assets/imgs/verificati.jpg", filename="verificati.jpg")
 
     embed = discord.Embed(
         color=def_color,
@@ -51,7 +51,7 @@ async def print_verificati(interaction: discord.Interaction):
         .set_footer(text="La Gilda Elaina | 2022 - 2023")
 
     channel = bot.get_channel(ver_ch_id)
-    await channel.send(file=rules_banner)
+    await channel.send(file=verified_banner)
     await channel.send(embed=embed)
     await channel.send(view=VerifyButton())
     await interaction.response.send_message("Regole scritte con successo")
@@ -79,6 +79,8 @@ async def on_ready():
     except:
         pass
 
+    bot.add_view(VerifyButton())
+
 @bot.event
 async def on_member_join(member: discord.Member):
     welcome_img = discord.File("./assets/imgs/welcome.jpg", filename="welcome.jpg")
@@ -88,7 +90,7 @@ async def on_member_join(member: discord.Member):
         title=f"Benvenuto sul server degli Aztecas",
         description="Ti auguriamo una buona permanenza",
     )\
-        .set_image(url="attachment://welcome.jpeg")
+        .set_image(url="attachment://welcome.jpg")
 
     channel = bot.get_channel(welcome_ch_id)
     await channel.send(f"<@{member.id}>")
