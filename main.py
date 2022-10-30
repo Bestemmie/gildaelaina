@@ -31,7 +31,8 @@ class VerifyButton(View):
     @discord.ui.button(label="Verificati", style=discord.ButtonStyle.green, custom_id="verificati_btn")
     async def custom_role(self, interaction: discord.Interaction, button: discord.ui.Button):
         member = bot.get_guild(guild_id).get_member(interaction.user.id)
-        await member.add_roles(ver_role_id)
+        role = bot.get_guild(guild_id).get_role(ver_role_id)
+        await member.add_roles(role)
         await interaction.response.defer()
 
 # GENERATORI
