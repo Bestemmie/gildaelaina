@@ -31,7 +31,7 @@ class VerifyButton(View):
     @discord.ui.button(label="Verificati", style=discord.ButtonStyle.green, custom_id="verificati_btn")
     async def custom_role(self, interaction: discord.Interaction, button: discord.ui.Button):
         member = bot.get_guild(guild_id).get_member(interaction.user.id)
-        member.add_roles(ver_role_id)
+        await member.add_roles(ver_role_id)
         await interaction.response.defer()
 
 # GENERATORI
@@ -87,8 +87,8 @@ async def on_member_join(member: discord.Member):
 
     embed = discord.Embed(
         color=def_color,
-        title=f"Benvenuto sul server degli Aztecas",
-        description="Ti auguriamo una buona permanenza",
+        title=f"Benvenuto sulla gilda di Elaina",
+        description="\"Se ti chiami FEDERICOSCHI, per favore accettami l'apply\" - Depressoh",
     )\
         .set_image(url="attachment://welcome.jpg")
 
